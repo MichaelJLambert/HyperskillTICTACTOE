@@ -23,6 +23,7 @@ def check_win():
 
 
 while True:
+    i = 0
     coordinates = input("Enter the coordinates: ").split()
     if not coordinates[0].isnumeric() or not coordinates[1].isnumeric():
         print("You should enter numbers!")
@@ -34,6 +35,10 @@ while True:
         print("This cell is occupied! Choose another one!")
         continue
     else:
-        d[' '.join(coordinates)] = 'X'
+        if i % 2 == 0:
+            d[' '.join(coordinates)] = 'X'
+        else:
+            d[' '.join(coordinates)] = 'O'
+        i += 1
         print_board()
         check_win()
